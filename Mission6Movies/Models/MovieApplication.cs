@@ -1,8 +1,10 @@
+using System.ComponentModel.DataAnnotations;
 namespace Mission6Movies.Models;
 
 public class MovieApplication
 {
-    
+    [Key]
+    [Required]
     public int MovieID { get; set; }
     public string Category { get; set; }
     public string Title { get; set; }

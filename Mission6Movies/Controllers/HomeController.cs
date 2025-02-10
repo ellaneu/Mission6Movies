@@ -8,6 +8,13 @@ namespace Mission6Movies.Controllers;
 public class HomeController : Controller
 {
     
+    private MovieApplicationContext _context;
+
+    public HomeController(MovieApplicationContext context)
+    {
+        _context = context;
+    }
+    
     public IActionResult Index()
     {
         return View();
@@ -29,6 +36,10 @@ public class HomeController : Controller
 
     public IActionResult MovieForm(MovieApplication response)
     {
+        
+        _context.MovieApplications.Add(response);
+        _context.SaveChanges();
+        
         return View("Confirmation", response);
     }
     
