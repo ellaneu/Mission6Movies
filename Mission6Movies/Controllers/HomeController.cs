@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using System.Net.Mime;
 using Microsoft.AspNetCore.Mvc;
 using Mission6Movies.Models;
 
@@ -16,10 +17,19 @@ public class HomeController : Controller
     {
         return View();
     }
+    
 
+    [HttpGet]
     public IActionResult MovieForm()
     {
         return View();
+    }
+
+    [HttpPost]
+
+    public IActionResult MovieForm(MovieApplication response)
+    {
+        return View("Confirmation", response);
     }
     
 }

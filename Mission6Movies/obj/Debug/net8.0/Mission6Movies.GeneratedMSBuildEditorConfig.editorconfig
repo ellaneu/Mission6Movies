@@ -18,6 +18,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = /Users/ellaneumarker/RiderProjects/Mission6Movies/Mission6Movies
 build_property._RazorSourceGeneratorDebug = 
 
+[/Users/ellaneumarker/RiderProjects/Mission6Movies/Mission6Movies/Views/Home/Confirmation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Db25maXJtYXRpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/ellaneumarker/RiderProjects/Mission6Movies/Mission6Movies/Views/Home/GetToKnow.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9HZXRUb0tub3cuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -28,10 +32,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [/Users/ellaneumarker/RiderProjects/Mission6Movies/Mission6Movies/Views/Home/MovieForm.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Nb3ZpZUZvcm0uY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[/Users/ellaneumarker/RiderProjects/Mission6Movies/Mission6Movies/Views/Shared/Error.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0Vycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/ellaneumarker/RiderProjects/Mission6Movies/Mission6Movies/Views/Shared/_ValidationScriptsPartial.cshtml]
