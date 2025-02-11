@@ -4,10 +4,13 @@
 
 @model MovieApplication
 
+<!-- Form to enter movies into the collection -->
+
 <h2>Movie Form</h2>
 
 <form method="post">
     
+    <!--Category of movie dropdown (required)-->
     <label asp-for="Category">Category:</label>
     <select asp-for="Category" required>
         <option value="Action/Adventure">Action/Adventure</option>
@@ -21,18 +24,22 @@
     </select>
     <br/><br/>
     
+    <!-- Title of the movie label and input (required)-->
     <label asp-for="Title">Title:</label>
     <input asp-for="Title" required/>
     <br/><br/>
     
+    <!-- Year of the movie label and input (required) -->
     <label asp-for="Year">Year:</label>
     <input asp-for="Year" required/>
     <br/><br/>
     
+    <!-- Director of the movie label and input (required)-->
     <label asp-for="Director">Director:</label>
     <input asp-for="Director" required/>
     <br/><br/>
     
+    <!-- Rating of the movie label and dropdown (required)-->
     <label asp-for="Rating">Rating:</label>
     <select asp-for="Rating" required>
         <option value="G">G</option>
@@ -42,6 +49,7 @@
     </select>
     <br/><br/>
 
+    <!-- Edited movie field with yes/no (true/false) dropdown option (not required) -->
     <label asp-for="Edited">Edited:</label>
     <select asp-for="Edited">
         <option value="true">Yes</option>
@@ -49,10 +57,12 @@
     </select>
     <br/><br/>
     
+    <!-- Who the movie was lent to label and input (not required) -->
     <label asp-for="LentTo">Lent To:</label>
     <input asp-for="LentTo"/>
     <br/><br/>
     
+    <!-- Movie notes label and text area input (not required), has a minimum of 25 characters -->
     <label asp-for="Notes">Notes:</label>
     <textarea asp-for="Notes" maxlength="25"></textarea>
     <br/><br/>
