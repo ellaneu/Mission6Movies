@@ -1,6 +1,8 @@
 using System.ComponentModel.DataAnnotations;
 namespace Mission6Movies.Models;
 
+
+// Creates a model for the form so the Model First Method can be performed
 public class MovieApplication
 {
     [Key]
