@@ -1,37 +1,109 @@
 @model List<MovieApplication>
 
-<table class="table table-bordered">
-    <thead>
-    <tr>
-        <td>Title</td>
-        <td>Category</td>
-        <td>Year</td>
-        <td>Director</td>
-        <td>Rating</td>
-        <td>Edited</td>
-        <td>Lent To</td>
-        <td>Copied To Plex</td>
-        <td>Notes</td>
-    </tr>
+<!-- Creates a table so you can see a list of all the movies in Joels collection -->
+
+<table class="table table-striped table-hover table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th>Title</th>
+            <th>Category</th>
+            <th>Year</th>
+            <th>Director</th>
+            <th>Rating</th>
+            <th>Edited</th>
+            <th>Lent To</th>
+            <th>Copied To Plex</th>
+            <th>Notes</th>
+            <th>Actions</th>
+        </tr>
     </thead>
 
-    @foreach(var x in Model)
-    {
-        <tbody>
-        <tr>
-            <td>@x.Title</td>
-            <td>@x.Category.CategoryName</td>
-            <td>@x.Year</td>
-            <td>@x.Director</td>
-            <td>@x.Rating</td>
-            <td>@x.Edited</td>
-            <td>@x.LentTo</td>
-            <td>@x.CopiedToPlex</td>
-            <td>@x.Notes</td>
-            <td><a class="btn btn-info" asp-controller="Home" asp-action="Edit" asp-route-id="@x.MovieId">Edit</a></td>
-            <td><a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@x.MovieId">Delete</a></td>
-        </tr>
-        </tbody>
+    <tbody>
+        @foreach(var x in Model)
+        {
+            <tr>
+                <td>@x.Title</td>
+                <td>@x.Category.CategoryName</td>
+                <td>@x.Year</td>
+                <td>@x.Director</td>
+                <td>@x.Rating</td>
+                <td>@x.Edited</td>
+                <td>@x.LentTo</td>
+                <td>@x.CopiedToPlex</td>
+                <td>@x.Notes</td>
+                <td class="text-center">
+                    <!-- Edit button that takes the user back to the movie form with their data filled in so they can edit it -->
+                    <a class="btn btn-info btn-sm mb-2" asp-controller="Home" asp-action="Edit" asp-route-id="@x.MovieId">Edit</a>
+                    <!-- Delete button that takes the user to a delete confirmation page and then deletes or cancels the request -->
+                    <a class="btn btn-danger btn-sm mt-2" asp-controller="Home" asp-action="Delete" asp-route-id="@x.MovieId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<!-- Adds Bootstrap style to the table to make it look more professional -->
+<style>
+    
+    .table {
+        border-radius: 8px;
+        overflow: hidden;
     }
     
-</table>
+    .table th, .table td {
+        padding: 15px;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    .table-striped tbody tr:nth-of-type(odd) {
+        background-color: #f9f9f9;
+    }
+
+    .table-hover tbody tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    .thead-dark {
+        background-color: #343a40;
+        color: white;
+    }
+
+    .btn {
+        margin: 0 5px;
+        border-radius: 5px;
+    }
+
+    .btn-sm {
+        font-size: 0.875rem;
+    }
+
+    .btn-info {
+        background-color: #17a2b8;
+        border-color: #17a2b8;
+    }
+
+    .btn-info:hover {
+        background-color: #138496;
+        border-color: #117a8b;
+    }
+
+    .btn-danger {
+        background-color: #dc3545;
+        border-color: #dc3545;
+    }
+
+    .btn-danger:hover {
+        background-color: #c82333;
+        border-color: #bd2130;
+    }
+    
+    .mb-2 {
+        margin-bottom: 0.5rem;
+    }
+
+    .mt-2 {
+        margin-top: 0.5rem;
+    }
+</style>

@@ -33,12 +33,12 @@
     <input asp-for="Year"/>
     <br/><br/>
 
-    <!-- Director of the movie label and input (required)-->
+    <!-- Director of the movie label and input-->
     <label asp-for="Director">Director:</label>
     <input asp-for="Director" />
     <br/><br/>
 
-    <!-- Rating of the movie label and dropdown (required)-->
+    <!-- Rating of the movie label and dropdown-->
     <label asp-for="Rating">Rating:</label>
     <select asp-for="Rating">
         <option value="G">G</option>
@@ -48,7 +48,7 @@
     </select>
     <br/><br/>
 
-    <!-- Edited movie field with yes/no (true/false) dropdown option (not required) -->
+    <!-- Edited movie field with yes/no (true/false) dropdown option (Required) -->
     <label asp-for="Edited">Edited:</label>
     <select asp-for="Edited">
         <option value="true">Yes</option>
@@ -56,12 +56,12 @@
     </select>
     <br/><br/>
 
-    <!-- Who the movie was lent to label and input (not required) -->
+    <!-- Who the movie was lent to label and input -->
     <label asp-for="LentTo">Lent To:</label>
     <input asp-for="LentTo"/>
     <br/><br/>
 
-    <!-- Edited movie field with yes/no (true/false) dropdown option (not required) -->
+    <!-- Copied to Plex field with yes/no (true/false) dropdown option (required) -->
     <label asp-for="CopiedToPlex">Copied To Plex:</label>
     <select asp-for="CopiedToPlex">
         <option value="true">Yes</option>
@@ -69,13 +69,14 @@
     </select>
     <br/><br/>
 
-    <!-- Movie notes label and text area input (not required), has a minimum of 25 characters -->
+    <!-- Movie notes label and text area input, has a minimum of 25 characters -->
     <label asp-for="Notes">Notes:</label>
     <textarea asp-for="Notes" maxlength="25"></textarea>
     <br/><br/>
 
     <button type="submit">Submit Movie</button>
     
+    <!-- Makes it so the user is notified if their input doesn't meet the requirements -->
     <div asp-validation-summary="All"></div>
 
 </form>

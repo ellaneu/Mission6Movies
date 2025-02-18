@@ -64,7 +64,7 @@ public class HomeController : Controller
         }
     }
     
-    
+    // Loads the information from the database using linq when the MovieList view is called
     public IActionResult MovieList()
     {
         // linq
@@ -75,6 +75,8 @@ public class HomeController : Controller
         return View(applications);
     }
     
+    // When the edit button is clicked the specific movie id is passed as a parameter and takes the user to the 
+    // Movie Form view with the specified information filled in
     [HttpGet]
     public IActionResult Edit(int id)
     {
@@ -88,6 +90,7 @@ public class HomeController : Controller
         return View("MovieForm", recordToEdit);
     }
 
+    // After editing the information it is updated in the database and the user is redirected to the list of movies
     [HttpPost]
     public IActionResult Edit(MovieApplication app)
     {
@@ -97,6 +100,7 @@ public class HomeController : Controller
         return RedirectToAction("MovieList");
     }
     
+    // Gets the specified movie based on its id and takes the user to the confirmation delete page
     [HttpGet]
     public IActionResult Delete(int id)
     {
@@ -106,6 +110,8 @@ public class HomeController : Controller
         return View(recordtoDelete);
     }
 
+    // If the user pushes the delete button then this action is triggered and removes the movie from the database
+    // After removing the movie the user is redirected back to the list of movies
     [HttpPost]
     public IActionResult Delete(MovieApplication app)
     {

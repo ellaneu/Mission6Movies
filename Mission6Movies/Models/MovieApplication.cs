@@ -19,6 +19,7 @@ public class MovieApplication
     public string Title { get; set; }
     
     [Required(ErrorMessage = "Year is required")]
+    // Makes it so the user is not allowed to enter a year lower than 1888
     [Range(1888, int.MaxValue, ErrorMessage = "Year must be greater than 1888")]
     public string Year { get; set; }
     public string? Director { get; set; }
