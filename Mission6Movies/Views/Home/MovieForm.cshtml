@@ -11,17 +11,14 @@
 <form method="post">
     
     <!--Category of movie dropdown (required)-->
-    <label asp-for="Category">Category:</label>
-    <select asp-for="Category" required>
-        <option value="Action/Adventure">Action/Adventure</option>
-        <option value="Comedy">Comedy</option>
-        <option value="Drama">Drama</option>
-        <option value="Family">Family</option>
-        <option value="Horror/Suspense">Horror/Suspense</option>
-        <option value="Miscellaneous">Miscellaneous</option>
-        <option value="Television">Television</option>
-        <option value="VHS">VHS</option>
+    <select asp-for="CategoryId">
+        <option value="">Select a Category</option>
+        @foreach (Categories c in ViewBag.Categories)
+        {
+            <option value="@c.CategoryId">@c.CategoryName</option>
+        }
     </select>
+
     <br/><br/>
     
     <!-- Title of the movie label and input (required)-->

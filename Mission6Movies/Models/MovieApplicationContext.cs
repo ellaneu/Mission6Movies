@@ -12,5 +12,6 @@ namespace Mission6Movies.Models
         }
         
         public DbSet<MovieApplication> MovieApplications { get; set; }
+        public DbSet<Categories> Categories { get; set; }
     }
 }

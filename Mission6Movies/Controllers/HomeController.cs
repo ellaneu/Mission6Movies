@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using System.Net.Mime;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Mission6Movies.Models;
 
 namespace Mission6Movies.Controllers;
@@ -34,6 +35,10 @@ public class HomeController : Controller
     [HttpGet]
     public IActionResult MovieForm()
     {
+        ViewBag.Categories = _context.Categories
+            .OrderBy(x => x.CategoryName)
+            .ToList();
+        
         return View();
     }
 
@@ -47,6 +52,18 @@ public class HomeController : Controller
         _context.SaveChanges();
         
         return View("Confirmation", response);
+    }
+    
+    
+    public IActionResult MovieList()
+    {
+        
+        // linq
+        var applications = _context.MovieApplications
+            .Include(x => x.Category)
+            .OrderBy(x => x.Title).ToList();
+        
+        return View(applications);
     }
     
 }
