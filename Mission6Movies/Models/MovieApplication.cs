@@ -15,16 +15,20 @@ public class MovieApplication
     public int? CategoryId {get; set;}
     public Category? Category {get; set;}
     
-    [Required]
+    [Required(ErrorMessage = "Title is required")]
     public string Title { get; set; }
-    [Required]
-    public string? Year { get; set; }
+    
+    [Required(ErrorMessage = "Year is required")]
+    [Range(1888, int.MaxValue, ErrorMessage = "Year must be greater than 1888")]
+    public string Year { get; set; }
     public string? Director { get; set; }
     public string? Rating { get; set; }
-    [Required]
+    
+    [Required(ErrorMessage = "Edited (yes/no) is required")]
     public bool Edited { get; set; }
     public string? LentTo { get; set; }
-    [Required]
+    
+    [Required(ErrorMessage = "Copied to Plex is required")]
     public bool CopiedToPlex { get; set; }
     public string? Notes { get; set; }
     

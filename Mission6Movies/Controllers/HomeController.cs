@@ -39,7 +39,7 @@ public class HomeController : Controller
             .OrderBy(x => x.CategoryName)
             .ToList();
         
-        return View();
+        return View("MovieForm", new MovieApplication());
     }
 
     // Adds the contents of the form to the MovieApplications database and saves it
@@ -47,17 +47,26 @@ public class HomeController : Controller
     [HttpPost]
     public IActionResult MovieForm(MovieApplication response)
     {
+        if (ModelState.IsValid)
+        {
+            _context.Movies.Add(response);
+            _context.SaveChanges();
         
-        _context.Movies.Add(response);
-        _context.SaveChanges();
-        
-        return View("Confirmation", response);
+            return View("Confirmation", response);
+        }
+        else
+        {
+            ViewBag.Categories = _context.Categories
+                .OrderBy(x => x.CategoryName)
+                .ToList();
+            
+            return View(response);
+        }
     }
     
     
     public IActionResult MovieList()
     {
-        
         // linq
         var applications = _context.Movies
             .Include(x => x.Category)
