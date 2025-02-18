@@ -66,4 +66,47 @@ public class HomeController : Controller
         return View(applications);
     }
     
+    [HttpGet]
+    public IActionResult Edit(int id)
+    {
+        MovieApplication recordToEdit = _context.Movies
+            .Single(x => x.MovieId == id);
+        
+        ViewBag.Categories = _context.Categories
+            .OrderBy(x => x.CategoryName)
+            .ToList();
+        
+        return View("MovieForm", recordToEdit);
+    }
+
+    [HttpPost]
+    public IActionResult Edit(MovieApplication app)
+    {
+        _context.Update(app);
+        _context.SaveChanges();
+        
+        return RedirectToAction("MovieList");
+    }
+    
+    [HttpGet]
+    public IActionResult Delete(int id)
+    {
+        var recordtoDelete = _context.Movies
+            .Single(x => x.MovieId == id);
+       
+        return View(recordtoDelete);
+    }
+
+    [HttpPost]
+    public IActionResult Delete(MovieApplication app)
+    {
+        _context.Movies.Remove(app);
+        _context.SaveChanges();
+        
+        return RedirectToAction("MovieList");
+    }
+    
+    
+    
+    
 }
