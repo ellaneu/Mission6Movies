@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Mission6Movies.Models
 {
-    public class Categories
+    public class Category
     {
         [Key]
         public int CategoryId { get; set; }

@@ -48,7 +48,7 @@ public class HomeController : Controller
     public IActionResult MovieForm(MovieApplication response)
     {
         
-        _context.MovieApplications.Add(response);
+        _context.Movies.Add(response);
         _context.SaveChanges();
         
         return View("Confirmation", response);
@@ -59,7 +59,7 @@ public class HomeController : Controller
     {
         
         // linq
-        var applications = _context.MovieApplications
+        var applications = _context.Movies
             .Include(x => x.Category)
             .OrderBy(x => x.Title).ToList();
         
